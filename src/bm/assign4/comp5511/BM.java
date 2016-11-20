@@ -68,6 +68,7 @@ public class BM {
     
     
     public void Print(){
+        /*
         System.out.println("Reference text is:");
         for(int i=0;i<ref_file.length;i++){
                System.out.print(ref_file[i] + " " );   
@@ -80,7 +81,7 @@ public class BM {
         System.out.println();
         return indexx;
         System.out.print("index is found at: "+ indexx + "    ");
-    
+    */
     }
     
 } 
