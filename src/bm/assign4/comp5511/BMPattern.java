@@ -56,9 +56,9 @@ public class BMPattern {
     
     
     public void Print(){
-
-        System.out.println("index is found at: "+ indexx + "    ");
-        System.out.print("Number of comparisions are: "+ compare + "    ");
+        System.out.println("Using BM Pattern:");
+        System.out.println("Index is found at: "+ indexx + "    ");
+        System.out.println("Number of comparisions are: "+ compare + "    ");
     }
     
 } 

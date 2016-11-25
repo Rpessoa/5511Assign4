@@ -8,8 +8,7 @@ public class BM {
     public static void main(String[] args) {
     BMPattern call = new BMPattern();
     call.CallBM();
-    
-    
+
     BMPattern print = new BMPattern();
     print.Print();
     }
