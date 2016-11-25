@@ -3,8 +3,8 @@ package bm.assign4.comp5511;
 
 
 public class BMPattern {
-    String[] ref_file =       {"a","b","c","a","c","a","b","b"};
-    String[] inputPattern   = {"a","b","b"};
+    String[] ref_file =       {"a","b","c","b","c","b","b","c"};
+    String[] inputPattern   = {"b","b","c"};
     int arraysize = ref_file.length;
     public static int indexx;
     public static int compare=0;
@@ -13,16 +13,19 @@ public class BMPattern {
     
     
     public void CallBM(){
-        
+          
            //Match
         if (ref_file[TStart] == inputPattern[BStart]) { 
             compare++;
             if(BStart ==0)//Last match
             {
+                    System.out.println("Using BM Pattern:");
+        System.out.println("Index is found at: "+ indexx + "    ");
+        System.out.println("Number of comparisions are: "+ compare + "    ");
                 return;
             }   
-        TStart--;
-        BStart--;  
+        TStart--;//are we setting tsart back to 3 after? we should
+        BStart--;  //same for bstart
         CallBM();     
         }
 
@@ -41,25 +44,26 @@ public class BMPattern {
                }  
             }
             //if nothing matches, move right by i boxes
-              if (i == inputPattern.length){
-                  for (int j=0; j<arraysize-i;j++){
+              if (i == BStart+1){
+                     if(inputPattern.length == arraysize)
+                     { 
+                         System.out.println("No Match!");
+                         return;
+                    }
+                  
+                 for (int j=0; j<arraysize-i;j++){
                  ref_file[j]=ref_file[j+i];
                  }
               }
             arraysize = arraysize - i;
             indexx = indexx + i;
+            TStart = inputPattern.length-1;
+            BStart = inputPattern.length-1;
             CallBM();
+            
              }
-           
-      
          }
     
-    
-    public void Print(){
-        System.out.println("Using BM Pattern:");
-        System.out.println("Index is found at: "+ indexx + "    ");
-        System.out.println("Number of comparisions are: "+ compare + "    ");
-    }
     
 } 
    

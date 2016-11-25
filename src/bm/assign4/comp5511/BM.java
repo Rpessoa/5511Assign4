@@ -9,8 +9,6 @@ public class BM {
     BMPattern call = new BMPattern();
     call.CallBM();
 
-    BMPattern print = new BMPattern();
-    print.Print();
     }
     
 }
