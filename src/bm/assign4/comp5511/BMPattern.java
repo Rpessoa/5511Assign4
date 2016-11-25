@@ -3,8 +3,8 @@ package bm.assign4.comp5511;
 
 
 public class BMPattern {
-    String[] ref_file =       {"a","b","c","b","c","b","b","c"};
-    String[] inputPattern   = {"b","b","c"};
+    String[] ref_file =       {"a","b","b","b","a"};
+    String[] inputPattern   = {"b","b","a"};
     int arraysize = ref_file.length;
     public static int indexx;
     public static int compare=0;
@@ -19,13 +19,13 @@ public class BMPattern {
             compare++;
             if(BStart ==0)//Last match
             {
-                    System.out.println("Using BM Pattern:");
-        System.out.println("Index is found at: "+ indexx + "    ");
-        System.out.println("Number of comparisions are: "+ compare + "    ");
+                System.out.println("Using BM Pattern:");
+                System.out.println("Index is found at: "+ indexx + "    ");
+                System.out.println("Number of comparisions are: "+ compare + "    ");
                 return;
             }   
-        TStart--;//are we setting tsart back to 3 after? we should
-        BStart--;  //same for bstart
+        TStart--;
+        BStart--;  
         CallBM();     
         }
 
@@ -36,24 +36,35 @@ public class BMPattern {
                compare++; 
               if(ref_file[TStart]==inputPattern[BStart-i]){
                  
-                  //if next is a match, then 
+                  //if next is a match, then
+                  if(arraysize >= i + inputPattern.length){
                  for (int j=0; j<arraysize-i;j++){
                  ref_file[j]=ref_file[j+i];
                  }
+                  }
+                 else  {System.out.println("No Match!");
+                         System.out.println("Number of comparisions are: "+ compare + "    ");
+                      return;}
+                 
                 break;
                }  
             }
             //if nothing matches, move right by i boxes
               if (i == BStart+1){
-                     if(inputPattern.length == arraysize)
+                  
+                     if((inputPattern.length == arraysize) || (inputPattern.length+ i > arraysize ))
                      { 
                          System.out.println("No Match!");
+                         System.out.println("Number of comparisions are: "+ compare + "    ");
                          return;
                     }
-                  
+                     
+                   //HERE!!! need to check if the array is long enough
+                  if(ref_file.length >= i + inputPattern.length){
                  for (int j=0; j<arraysize-i;j++){
                  ref_file[j]=ref_file[j+i];
                  }
+                  }
               }
             arraysize = arraysize - i;
             indexx = indexx + i;
