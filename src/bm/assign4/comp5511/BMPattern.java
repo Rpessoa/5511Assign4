@@ -1,6 +1,8 @@
 
 package bm.assign4.comp5511;
 
+import java.util.Arrays;
+
 
 public class BMPattern {
     String[] ref_file =       {"a","b","b","b","a"};
@@ -19,6 +21,8 @@ public class BMPattern {
             compare++;
             if(BStart ==0)//Last match
             {
+                System.out.println("Text " + Arrays.toString(ref_file));
+                System.out.println("Pattern "+ Arrays.toString(inputPattern));
                 System.out.println("Using BM Pattern:");
                 System.out.println("Index is found at: "+ indexx + "    ");
                 System.out.println("Number of comparisions are: "+ compare + "    ");
@@ -42,9 +46,13 @@ public class BMPattern {
                  ref_file[j]=ref_file[j+i];
                  }
                   }
-                 else  {System.out.println("No Match!");
-                         System.out.println("Number of comparisions are: "+ compare + "    ");
-                      return;}
+                 else  {
+                     System.out.println("Text " + Arrays.toString(ref_file));
+                     System.out.println("Pattern "+ Arrays.toString(inputPattern));
+                     System.out.println("No Match!");
+                     System.out.println("Number of comparisions are: "+ compare + "    ");
+                      return;
+                 }
                  
                 break;
                }  
@@ -54,6 +62,8 @@ public class BMPattern {
                   
                      if((inputPattern.length == arraysize) || (inputPattern.length+ i > arraysize ))
                      { 
+                         System.out.println("Text " + Arrays.toString(ref_file));
+                         System.out.println("Pattern "+ Arrays.toString(inputPattern));
                          System.out.println("No Match!");
                          System.out.println("Number of comparisions are: "+ compare + "    ");
                          return;
